@@ -1,3 +1,5 @@
+@import './styles/variables.scss';
+
 .App {
   text-align: center;
 }
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #778fbf;
+  background-color: $primary-color;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +27,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: $secondary-color;
 }
 
 @keyframes App-logo-spin {
@@ -39,4 +41,17 @@
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.btn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background: rgb(199, 196, 23);
+  border: none;
+  &:hover {
+    background: rgb(236, 233, 36);
+  }
 }
