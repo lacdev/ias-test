@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
-export interface CardListProps {
+
+export interface MainContainerProps {
   children: ReactNode
 }

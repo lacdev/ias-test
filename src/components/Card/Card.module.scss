@@ -1,0 +1,13 @@
+.characterCard {
+  border: 1px solid rgb(246, 171, 184);
+  border-radius: 8px;
+  margin: 4px 4px;
+  padding: 8px;
+  font-weight: 700;
+  background-color: rgb(251, 230, 233);
+  min-width: 180px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(255, 212, 219);
+  }
+}

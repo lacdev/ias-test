@@ -1,0 +1,14 @@
+.searchInput {
+  border: 1px solid grey;
+  border-radius: 6px 0px 0px 6px;
+  height: 20px;
+  width: 100%;
+  padding: 16px 8px;
+  background-color: #efefef;
+  &:hover,
+  &:focus {
+    border: 1px solid rgb(254, 126, 145);
+    background-color: white;
+    outline: none;
+  }
+}

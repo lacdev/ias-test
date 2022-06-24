@@ -1,4 +1,5 @@
 import { SearchInputProps } from './SearchInput.types'
+import styles from './SearchInput.module.scss'
 
 export const SearchInput = ({
   onInputChange,
@@ -11,6 +12,7 @@ export const SearchInput = ({
   return (
     <>
       <input
+        className={styles.searchInput}
         type={type}
         name={name}
         id={id}

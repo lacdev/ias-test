@@ -1,7 +1,20 @@
 .homeContainer {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  flex-flow: column wrap;
+  // justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 16px;
+}
+
+.charactersContainer {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 16px 0;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

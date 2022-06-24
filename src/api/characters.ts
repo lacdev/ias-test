@@ -14,7 +14,6 @@ export const getCharactersByPage = async () => {
   while (nextPage) {
     const response = await fetch(nextPage)
     const { next, results } = await response.json()
-
     nextPage = next
     characters = [...characters, ...results]
   }
