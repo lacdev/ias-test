@@ -1,5 +1,6 @@
 import styles from './Pagination.module.scss'
 import { PaginationProps } from './Pagination.types'
+import { useState } from 'react'
 
 const Pagination = ({
   currentPage,
@@ -9,6 +10,8 @@ const Pagination = ({
   // const totalPages = props.response.totalPages - 1
   // const data = props.response.data
 
+  const [pageNumber, setPageNumber] = useState<number>(1) // No of pages
+  const itemsPerPage = 4
   // // build page numbers list based on total number of pages
   // const pages = []
   // for (let i = 1; i <= totalPages; i++) {

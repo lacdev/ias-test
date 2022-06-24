@@ -10,8 +10,6 @@ const Home = () => {
   const [isError, setIsError] = useState<boolean>(false)
   const [characters, setCharacters] = useState<CharactersDTO[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const [pageNumber, setPageNumber] = useState<number>(1) // No of pages
-  const itemsPerPage = 4
 
   useEffect(() => {
     async function getData() {
