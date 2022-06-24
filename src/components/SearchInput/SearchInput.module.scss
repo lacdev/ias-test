@@ -1,10 +1,10 @@
 .searchInput {
-  border: 1px solid grey;
-  border-radius: 6px 0px 0px 6px;
+  border: 1px solid rgb(154, 154, 154);
+  border-radius: 6px 6px 6px 6px;
   height: 20px;
   width: 100%;
   padding: 16px 8px;
-  background-color: #efefef;
+  background-color: #f4f4f4;
   &:hover,
   &:focus {
     border: 1px solid rgb(254, 126, 145);

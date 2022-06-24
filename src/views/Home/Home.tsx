@@ -15,9 +15,6 @@ const Home = () => {
   const [isError, setIsError] = useState<boolean>(false)
   const [characters, setCharacters] = useState<CharactersDTO[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const [filteredCharacters, setFilteredCharacters] = useState<CharactersDTO[]>(
-    []
-  )
 
   useEffect(() => {
     async function getData() {
@@ -36,24 +33,9 @@ const Home = () => {
   }, [])
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value)
-    if (!searchTerm) return
-
-    const filtered = characters.filter((char) => {
-      if (searchTerm) {
-        return char.name.toLowerCase().includes(searchTerm.toLowerCase())
-      } else {
-        return char
-      }
-    })
-
-    setFilteredCharacters(filtered)
+    let inputValue = event.target.value.toLowerCase()
+    setSearchTerm(inputValue)
   }
-
-  console.log({ filteredCharacters })
-  console.log({ characters })
-
-  const handleClick = () => {}
 
   return (
     <div className={styles.homeContainer}>
@@ -66,26 +48,47 @@ const Home = () => {
           name="search"
           placeholder="Search your character"
         />
-        <Button type="button" onClick={handleClick}>
-          Search
-        </Button>
       </div>
+
       <MainContainer>
         {isLoading && !isError && <LoadingMessage text="Loading Data..." />}
         {!isLoading && isError && (
           <ErrorMessage text="There was an error. Try again later." />
         )}
 
-        {/* {!isLoading && !isError && <CardList></CardList>} */}
-        {/* {!isLoading && !isError && searchTerm && (
-          
-        )} */}
+        {!isLoading && !isError && characters.length && (
+          <CardList>
+            {characters
+              .filter((char) => {
+                if (!searchTerm) {
+                  return char
+                } else {
+                  return char.name.toLowerCase().includes(searchTerm)
+                }
+              })
+              .map((char) => (
+                <Card character={char} key={char.name} />
+              ))}
+          </CardList>
+        )}
       </MainContainer>
     </div>
   )
 }
 
 export default Home
+
+{
+  /* <Button type="button" onClick={handleClick}>
+          Search
+        </Button> */
+}
+
+// const handleClick = () => {}
+
+// {characters.map((char) => (
+//   <Card character={char} key={char.name} />
+// ))}
 
 {
   /* {characters
