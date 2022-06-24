@@ -8,8 +8,7 @@ export const getCharacters = async () => {
 }
 
 export const getCharactersByPage = async () => {
-  let nextPage = `${API_BASE_URL}`
-
+  let nextPage = `${API_BASE_URL}?page=1`
   let characters: CharactersDTO[] = []
 
   while (nextPage) {
@@ -24,7 +23,7 @@ export const getCharactersByPage = async () => {
 }
 
 export const getCharactersByName = async (name: string) => {
-  const response = await fetch(`https://swapi.dev/api/people/?search=${name}`)
+  const response = await fetch(`${API_BASE_URL}?search=${name}`)
   const data = await response.json()
   return data.results
 }

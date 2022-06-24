@@ -1,8 +1,8 @@
 import styles from './Card.module.scss'
 import { CardProps } from './Card.types'
 
-const Card = ({ name }: CardProps) => {
-  return <div>Card</div>
+const Card = ({ character }: CardProps) => {
+  return <div>{character.name}</div>
 }
 
 export default Card

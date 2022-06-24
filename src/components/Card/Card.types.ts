@@ -1,3 +1,4 @@
+import { CharactersDTO } from '../../types/api-data.types'
 export interface CardProps {
-  name: string
+  character: CharactersDTO
 }
