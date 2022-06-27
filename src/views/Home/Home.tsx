@@ -55,17 +55,12 @@ const Home = () => {
         {!isLoading && isError && (
           <ErrorMessage text="There was an error. Try again later." />
         )}
-
         {!isLoading && !isError && characters.length && (
           <CardList>
             {characters
-              .filter((char) => {
-                if (!searchTerm) {
-                  return char
-                } else {
-                  return char.name.toLowerCase().includes(searchTerm)
-                }
-              })
+              .filter((char) =>
+                searchTerm ? char.name.toLowerCase().includes(searchTerm) : char
+              )
               .map((char) => (
                 <Card character={char} key={char.name} />
               ))}
@@ -77,80 +72,3 @@ const Home = () => {
 }
 
 export default Home
-
-{
-  /* <Button type="button" onClick={handleClick}>
-          Search
-        </Button> */
-}
-
-// const handleClick = () => {}
-
-// {characters.map((char) => (
-//   <Card character={char} key={char.name} />
-// ))}
-
-{
-  /* {characters
-        .filter((char) => {
-          if (searchTerm === '') {
-            return char
-          } else if (
-            char.name.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return char
-          }
-        })
-        .map((char, index) => (
-          <div className="box" key={index}>
-            <p>{char.name}</p>
-          </div>
-        ))} */
-}
-
-{
-  /* {
-          !isLoading &&
-            !isError &&
-            searchTerm &&
-            characters
-              .filter((character) => character.name.includes(searchTerm))
-              .map((character) => {
-                return <Card key={character.name} character={character} />
-              })
-          // {characters.filter((crypto) => {
-          //   if (search == "" || crypto.name.toLowerCase().includes(search.toLowerCase())) {
-          //       return (
-          //           <li key={crypto.id}>
-          //               <h3>{crypto.id}</h3>
-          //               <p>{crypto.current_price}</p>
-          //               <p>{crypto.symbol}</p>
-          //               <img src={crypto.image} alt="image" />
-          //           </li>
-          //       );
-          //   }
-          //   return null;
-        } */
-}
-
-// {searchTerm
-//   ? characters
-//       .filter((char) => {
-//         if (searchTerm) {
-//           return char.name
-//             .toLowerCase()
-//             .includes(searchTerm.toLowerCase())
-//         } else {
-//           return char
-//         }
-//       })
-//       .map((character: CharactersDTO) => (
-//         <Card key={character.name} character={character} />
-//       ))
-//   : characters.map((character) => (
-//       <CardList>
-//         {filteredCharacters.map((character: CharactersDTO) => (
-//           <Card key={character.name} character={character} />
-//         ))}
-//       </CardList>
-//     ))}
