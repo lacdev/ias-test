@@ -32,16 +32,11 @@ const Home = () => {
     getData()
   }, [])
 
-  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    let inputValue = event.target.value.toLowerCase()
-    setSearchTerm(inputValue)
-  }
-
   return (
     <div className={styles.homeContainer}>
       <div className={styles.inputContainer}>
         <SearchInput
-          onInputChange={handleSearch}
+          onInputChange={setSearchTerm}
           value={searchTerm}
           type="search"
           id="search"

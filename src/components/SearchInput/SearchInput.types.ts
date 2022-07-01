@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 
 export interface SearchInputProps {
   type: string
@@ -6,5 +6,5 @@ export interface SearchInputProps {
   id: string
   placeholder: string
   value: string
-  onInputChange: (event: ChangeEvent<HTMLInputElement>) => void
+  onInputChange: Dispatch<SetStateAction<string>>
 }

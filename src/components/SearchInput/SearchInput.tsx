@@ -1,5 +1,6 @@
 import { SearchInputProps } from './SearchInput.types'
 import styles from './SearchInput.module.scss'
+import { ChangeEvent } from 'react'
 
 export const SearchInput = ({
   onInputChange,
@@ -9,6 +10,10 @@ export const SearchInput = ({
   id,
   placeholder,
 }: SearchInputProps) => {
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    let inputValue = event.target.value.toLowerCase()
+    onInputChange(inputValue)
+  }
   return (
     <>
       <input
@@ -18,7 +23,7 @@ export const SearchInput = ({
         id={id}
         placeholder={placeholder}
         value={value}
-        onChange={onInputChange}
+        onChange={handleSearch}
       />
     </>
   )
